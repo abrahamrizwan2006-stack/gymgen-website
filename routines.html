@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Saved Plans</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+<h2>GymGen</h2>
+<ul>
+<li><a href="index.html" class=>Home</a></li> 
+<li><a href="generator.html">Generator</a></li> 
+<li><a href="routines.html""active">Saved Plans</a></li> 
+<li><a href="progress.html">Progress</a></li>
+<li><a href="nutrition.html">Nutrition</a></li>
+<li><a href="library.html">Library</a></li>
+<li><a href="challenges.html">Challenges</a></li>
+<li><a href="community.html">Community</a></li>
+<li><a href="diary.html">Diary</a></li> 
+<li><a href="about.html">About</a></li> </ul>
+</nav>
+<section class="card">
+<h2>Saved Workout Plans</h2>
+<div class="routine-card">
+<h3>Example Weekly Plan</h3>
+<p>Day 1: Chest & Triceps</p>
+<p>Day 2: Back & Biceps</p>
+<p>Day 3: Legs</p>
+</div>
+<hr>
+<h2>Workout Guide</h2>
+<p>Learn more about each muscle group and the exercises that target them.</p>
+<p>Click on a muscle group below to see some of the most effective exercises.</p>
+<button class="toggle-btn" onclick="toggleSection('chest')">Chest</button>
+<button class="toggle-btn" onclick="toggleSection('back')">Back</button>
+<button class="toggle-btn" onclick="toggleSection('arms')">Arms</button>
+<button class="toggle-btn" onclick="toggleSection('legs')">Legs</button>
+<button class="toggle-btn" onclick="toggleSection('cardio')">Cardio</button>
+<div id="chest" class="guide-section">
+<li>Barbell Bench Press – Best overall chest exercise for building strength</li>
+<li>Dumbbell Bench Press – Helps improve balance and control</li>
+<li>Incline Bench Press – Focuses more on the upper chest</li>
+<li>Chest Dips – Good bodyweight movement for chest and triceps</li>
+<li>Cable Flyes – Often used as a finishing exercise</li>
+</div>
+<div id="back" class="guide-section">
+<li>Deadlifts – Builds overall strength and works the whole back</li>
+<li>Pull-Ups – Great for increasing back width</li>
+<li>Barbell Rows – Adds thickness to the back</li>
+<li>Lat Pulldowns – Easier alternative to pull-ups</li>
+<li>Seated Cable Rows – Allows controlled back movement</li>
+</div>
+<div id="arms" class="guide-section">
+<li>Close-Grip Bench Press – Targets triceps strength</li>
+<li>Barbell Curls – Basic exercise for bicep growth</li>
+<li>Skull Crushers – Isolates the triceps</li>
+<li>Hammer Curls – Works biceps and forearms</li>
+<li>Cable Pushdowns – Good tricep finishing movement</li>
+</div>
+<div id="legs" class="guide-section">
+<li>Barbell Squats – One of the best exercises for leg development</li>
+<li>Romanian Deadlifts – Focuses on hamstrings</li>
+<li>Leg Press – Allows heavy weight for leg strength</li>
+<li>Lunges – Improves balance and coordination</li>
+<li>Calf Raises – Targets lower leg muscles</li>
+</div>
+<div id="cardio" class="guide-section">
+<li>Running – Burns a high number of calories</li>
+<li>Cycling – Lower impact cardio option</li>
+<li>Rowing Machine – Full body cardio workout</li>
+<li>Stair Climber – Builds endurance and leg strength</li>
+<li>Walking – Beginner friendly and easy to maintain</li>
+</div>
+</section>
+<script>
+
+function toggleSection(id) {
+
+const sections = document.querySelectorAll('.guide-section');
+
+sections.forEach(section => {
+
+   if (section.id === id) {
+
+     section.style.display =
+
+       section.style.display === 'block' ? 'none' : 'block';
+
+   } else {
+
+     section.style.display = 'none';
+
+   }
+
+});
+
+}
+</script>
+</body>
+</html>
+ 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Progress | GymGen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<h2>GymGen</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="generator.html">Generator</a></li>
+<li><a href="routines.html">Saved Plans</a></li>
+<li><a href="progress.html""active">Progress</a></li>
+<li><a href="nutrition.html">Nutrition</a></li>
+<li><a href="library.html">Exercise Library</a></li>
+<li><a href="challenges.html">Challenges</a></li>
+<li><a href="community.html">Community</a></li>
+<li><a href="diary.html">Diary</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+</nav>
+
+<!-- Simple top banner instead of full hero -->
+<section class="progress-banner">
+<h1>Track Your Progress</h1>
+<p>Small improvements every week lead to big results.</p>
+</section>
+
+<div class="progress-container">
+
+<div class="left-side">
+<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Workout progress">
+</div>
+
+<div class="right-side">
+
+<h3>Add Your Current Weight</h3>
+
+<form id="weightForm">
+<input type="number" id="weightInput" placeholder="Enter weight in kg" required>
+<button type="submit" class="btn">Save Entry</button>
+</form>
+
+<div id="weightHistory"></div>
+
+</div>
+</div>
+
+<footer>
+<p>This website provides educational fitness information only.</p>
+</footer>
+
+<script>
+let weightData = JSON.parse(localStorage.getItem("progressWeights")) || [];
+const historyDiv = document.getElementById("weightHistory");
+
+function showHistory() {
+historyDiv.innerHTML = "";
+if(weightData.length === 0){
+historyDiv.innerHTML = "<p>No entries yet.</p>";
+return;
+}
+
+weightData.forEach(function(weight, index){
+historyDiv.innerHTML += `
+<div class="weight-item">
+<span>${weight} kg</span>
+<button onclick="deleteWeight(${index})">Remove</button>
+</div>
+`;
+});
+}
+
+document.getElementById("weightForm").addEventListener("submit", function(e){
+e.preventDefault();
+let value = document.getElementById("weightInput").value;
+weightData.push(value);
+localStorage.setItem("progressWeights", JSON.stringify(weightData));
+this.reset();
+showHistory();
+});
+
+function deleteWeight(index){
+weightData.splice(index,1);
+localStorage.setItem("progressWeights", JSON.stringify(weightData));
+showHistory();
+}
+
+showHistory();
+</script>
+
+</body>
+</html>
